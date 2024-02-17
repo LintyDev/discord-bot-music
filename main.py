@@ -2,6 +2,7 @@ import dotenv
 import os
 import discord
 from discord.ext import commands
+from discord import app_commands
 
 class Bot(commands.Bot):
     def __init__(self) -> None:
@@ -11,10 +12,9 @@ class Bot(commands.Bot):
         dotenv.load_dotenv()
         await self.load_extension("cogs.init_bot")
         await self.load_extension("cogs.music_bot")
-        await self.tree.sync(guild=discord.Object(id=os.getenv("GUILD_ID")))
+        await self.tree.sync(guild=discord.Object(id=int(os.getenv("GUILD_ID"))))
     
     async def on_ready(self) -> None:
-        
         print(f"{self.user.name} is up!")
 
 bot = Bot()
