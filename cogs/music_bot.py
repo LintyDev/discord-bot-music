@@ -11,11 +11,13 @@ class MusicCog(commands.Cog):
     async def on_command_error(self, ctx: commands.Context, error: commands.errors) -> discord.Message:
         await handle_error(self, ctx, error=error)
     
+    @commands.check(check_user_channel)
     @commands.check(check_bot_channel)
     @commands.guild_only()
     @commands.hybrid_command(name="join")
     async def join_command(self, ctx: commands.Context) -> discord.Message:
-        return await ctx.send("Prêt à rejoindre le canal et gérer la playlist.")
+        
+        return await ctx.send("Prêt à gérer la playlist.")
     
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(MusicCog(bot))
