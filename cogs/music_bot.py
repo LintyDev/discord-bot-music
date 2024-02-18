@@ -86,7 +86,7 @@ class MusicCog(commands.Cog):
         
         file = self.youtube.get_audio(to_play_url)
         # a voir !!!
-        discord.opus.load_opus('/opt/homebrew/Cellar/opus/1.4/lib/libopus.dylib')
+        # discord.opus.load_opus('/opt/homebrew/Cellar/opus/1.4/lib/libopus.dylib')
         
         # Play musique and send message
         callback = partial(self.after_playback, ctx=ctx, current_file=file)
