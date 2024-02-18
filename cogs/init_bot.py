@@ -15,7 +15,7 @@ class InitCog(commands.Cog):
             if not existing_channel:
                existing_channel = await guild.create_text_channel(channel_name)
             
-            await existing_channel.send("Hello, I'm ready to work ! (make an embed message with some help)")
+            await existing_channel.send("Hello, I'm ready to work ! first type ./join")
     
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(InitCog(bot))
